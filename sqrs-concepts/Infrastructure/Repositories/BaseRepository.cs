@@ -8,24 +8,27 @@ namespace sqrs_concepts.Infrastructure.Repositories
 {
     public abstract class BaseRepository
 	{
-		private readonly IEventWriter eventWriter;
+        private const string _connectionString = "Server=tcp:sqlserver,1433;Database=Orders;User ID=sa;Password=Password1234!;Trusted_Connection=False;Encrypt=False;";
+
+
+        private readonly IEventWriter eventWriter;
 
 		public BaseRepository(IEventWriter eventWriter)
 		{
 			this.eventWriter = eventWriter;
 		}
 
-        public async Task<int> SaveAggregateAsync(string sql,
+        public async ValueTask<int> SaveAggregateAsync(string sql,
             AggregateBase aggregate,
             IDbTransaction? transaction = null)
         {
-            using var connection = transaction?.Connection as SqlConnection ?? new SqlConnection();
+            using var connection = transaction?.Connection as SqlConnection ?? new SqlConnection(_connectionString);
             await connection.OpenAsync();
 
             using var currentTransaction = transaction ?? await connection.BeginTransactionAsync();
             try
             {
-                var result = await connection.ExecuteAsync(sql, aggregate);
+                var result = await connection.ExecuteAsync(sql, aggregate, transaction: currentTransaction);
 
                 var events = aggregate.GetEvents();
                 foreach (var @event in events)

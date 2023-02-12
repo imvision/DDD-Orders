@@ -1,4 +1,8 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using sqrs_concepts.Infrastructure.Repositories;
+using sqrs_concepts.Infrastructure.Streams;
+using StackExchange.Redis;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -7,6 +11,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var redisConnection = ConnectionMultiplexer.Connect("redis");
+builder.Services.AddSingleton<IConnectionMultiplexer>(redisConnection);
+builder.Services.AddScoped<IEventWriter, RedisEventWriter>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
