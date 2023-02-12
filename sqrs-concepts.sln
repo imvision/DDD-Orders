@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1704.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sqrs-concepts", "sqrs-concepts\sqrs-concepts.csproj", "{FD020F71-7051-4BE8-94E7-A946DFA4D42E}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FC9290A6-CAB1-4D4F-A199-CEB5E36F06B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FD020F71-7051-4BE8-94E7-A946DFA4D42E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD020F71-7051-4BE8-94E7-A946DFA4D42E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD020F71-7051-4BE8-94E7-A946DFA4D42E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC9290A6-CAB1-4D4F-A199-CEB5E36F06B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC9290A6-CAB1-4D4F-A199-CEB5E36F06B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC9290A6-CAB1-4D4F-A199-CEB5E36F06B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC9290A6-CAB1-4D4F-A199-CEB5E36F06B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

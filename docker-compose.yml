@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  sqrs-concepts:
+    image: ${DOCKER_REGISTRY-}sqrsconcepts
+    build:
+      context: .
+      dockerfile: sqrs-concepts/Dockerfile
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+  sqlserver:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: "Password1234!"
+    ports:
+      - 1433:1433
