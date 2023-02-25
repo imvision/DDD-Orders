@@ -26,6 +26,7 @@
     <None Remove="Dapper" />
     <None Remove="StackExchange.Redis" />
     <None Remove="Microsoft.Data.SqlClient" />
+    <None Remove="Infrastructure\Redis\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\" />
@@ -33,5 +34,6 @@
     <Folder Include="Infrastructure\" />
     <Folder Include="Infrastructure\Repositories\" />
     <Folder Include="Infrastructure\Streams\" />
+    <Folder Include="Infrastructure\Redis\" />
   </ItemGroup>
 </Project>

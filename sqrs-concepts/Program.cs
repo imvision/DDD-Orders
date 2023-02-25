@@ -1,4 +1,5 @@
-﻿using sqrs_concepts.Infrastructure.Repositories;
+﻿using sqrs_concepts.Domain.Orders;
+using sqrs_concepts.Infrastructure.Redis;
 using sqrs_concepts.Infrastructure.Streams;
 using StackExchange.Redis;
 

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using sqrs_concepts.Domain.Orders;
-using sqrs_concepts.Infrastructure.Repositories;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -40,7 +39,7 @@ namespace sqrs_concepts.Controllers
         {
             var order = new Order(Guid.NewGuid(), input.MarketId, input.SelectionId, input.Price,
                 input.Size, input.Side);
-            order = await orderRepository.SaveOrderAsync(order);
+            order = await orderRepository.SaveAsync(order);
             return Ok(order);
         }
 

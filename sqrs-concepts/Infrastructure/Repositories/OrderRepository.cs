@@ -11,7 +11,7 @@ namespace sqrs_concepts.Infrastructure.Repositories
         {
         }
 
-        public async ValueTask<Order> SaveOrderAsync(Order order)
+        public async ValueTask<Order> SaveAsync(Order order)
         {
             var sql = @"Insert into Orders (Id, MarketId, SelectionId, Price, Size, Side, PlaceTime, Version)
 				Values (@Id, @MarketId, @SelectionId, @Price, @Size, @Side, @PlaceTime, @Version)";
